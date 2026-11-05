@@ -1,0 +1,39 @@
+{
+  "name": "die-eschweger-nuxt",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": "^22.22.3 || ^24.15.0 || >=26.0.0"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@iconfu/svg-inject": "^2.0.1",
+    "@pinia/nuxt": "^1.0.3",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.8",
+    "clipboard": "^2.0.11",
+    "filepond": "^4.32.12",
+    "filepond-plugin-file-validate-size": "^2.2.8",
+    "filepond-plugin-file-validate-type": "^1.2.9",
+    "filepond-plugin-image-preview": "^4.6.12",
+    "nuxt": "^4.6.4",
+    "page-flip": "^2.0.7",
+    "pdfjs-dist": "^6.5.438",
+    "pinia": "^4.1.0",
+    "plyr": "^3.8.4",
+    "prismjs": "^1.30.0",
+    "swiper": "^14.4.0",
+    "vue": "^3.5.44",
+    "vue-filepond": "^8.0.0",
+    "vue-router": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6"
+  }
+}
