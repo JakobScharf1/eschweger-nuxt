@@ -26,10 +26,10 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    apiBaseUrl: process.env.NUXT_API_BASE_URL || process.env.VITE_BASE_URL || '',
-    apiBearer: process.env.NUXT_API_BEARER || process.env.VITE_API_BEARER || '',
+    apiBaseUrl: '',
+    apiBearer: '',
     public: {
-      publicationId: process.env.NUXT_PUBLIC_PUBLICATION_ID || process.env.VITE_PUBLIKATION_ID || '',
+      publicationId: '',
     },
   },
   nitro: {
