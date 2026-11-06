@@ -30,9 +30,9 @@
         <div v-if="subtitle" class="small text-wrap">{{ subtitle }}</div>
         <div v-if="price" class="fs-12 fw-bold mt-4">{{ price }},- €</div>
         <div v-if="priceBusiness" class="fs-12 fw-bold mt-4">
-          <div v-if="priceBusiness.ort">Ortspreis: {{ priceBusiness.ort }},- €</div>
-          <div v-if="priceBusiness.base">Grundpreis: {{ priceBusiness.base }},- €</div>
-          <div v-if="priceBusiness.social" class="text-primary">Social-Gam.: {{ priceBusiness.social }},- €</div>
+          <div v-if="priceBusiness.ortspreis">Ortspreis: {{ priceBusiness.ortspreis }},- €</div>
+          <div v-if="priceBusiness.grundpreis">Grundpreis: {{ priceBusiness.grundpreis }},- €</div>
+          <div v-if="priceBusiness.social_gamification" class="text-primary">Social-Gam.: {{ priceBusiness.social_gamification }},- €</div>
         </div>
       </div>
 
