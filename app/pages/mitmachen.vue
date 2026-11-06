@@ -304,5 +304,16 @@ const pakete = reactive([
       "Rückmeldungen von Teilnehmern und Unternehmen sammeln und in die Weiterentwicklung einbringen",
     ]
   },
+  {
+    id: 11,
+    title: "Heftverteilung",
+    subtitle: "Unterstützung bei der Verteilung der Hefte (3-10 Stunden/Monat)",
+    content: [
+      "Hefte zu den Auslagestellen bringen",
+      "Hefte nachliefern",
+      "Neue Auslagestellen finden",
+      "Kommunikation mit den Auslagestellen",
+    ]
+  },
 ])
 </script>

@@ -433,7 +433,10 @@
                     style="position:absolute; left:-9999px"
                 />
 
-                <em class="mb-3">Wir setzen uns bzgl. der Anzeigenvorlage(n) mit Ihnen in Verbindung. Gerne erstellen wir auch für Sie kostenpflichtig individuelle Anzeigenvorlagen.</em>
+                <em class="mb-3">
+                    Wir setzen uns bzgl. der Anzeigenvorlage(n) mit Ihnen in Verbindung. Gerne erstellen wir auch für Sie kostenpflichtig individuelle Anzeigenvorlagen.<br/>
+                    Die Rechnungsstellung  erfolgt einzeln pro Anzeigenauftrag und pro Ausgabe jeweils ca. eine Woche nach Erscheinen.
+                </em>
 
                 <div class="col-12 justify-content-center mb-3">
                     <button type="submit" class="btn btn-primary rounded-pill btn-send" :disabled="submitting">
@@ -615,7 +618,7 @@ const {
         //     await uploadVorlage(res.bestellung_id, uploadedFile.value[0])
         // }
     },
-    successText: 'Erfolgreich abgesendet! Bitte bestätigen Sie Ihre Email-Adresse, damit wir Ihre Anfrage bearbeiten können.',
+    successText: 'Erfolgreich abgesendet! Bitte bestätigen Sie Ihre Anzeigenbestellung, damit wir Ihre Anfrage bearbeiten können.',
 })
 
 const { livePreis, livePreisLoading } = useLivePreis(form, selectedId, config.public.publicationId)
