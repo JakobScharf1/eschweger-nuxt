@@ -212,6 +212,10 @@ const pakete1 = reactive([
     label: "Abobetreuung",
     chosen: false,
   },
+  {
+    label: "Heftverteilung",
+    chosen: false,
+  },
 ])
 
 const pakete2 = reactive([
