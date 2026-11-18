@@ -1,3 +1,5 @@
+import { useRuntimeConfig } from '#imports'
+
 class ApiError extends Error {
   constructor(status, statusText, message) {
     super(message ?? `${status} ${statusText}`)
@@ -7,8 +9,15 @@ class ApiError extends Error {
 }
 
 async function request(method, path, body, options = {}) {
-  const proxyPath = `/api/backend${path.startsWith('/') ? path : `/${path}`}`
-  const url = new URL(proxyPath, 'http://localhost')
+  const config = useRuntimeConfig()
+  const apiBaseUrl = String(config.public.apiBaseUrl || '').replace(/\/+$/, '')
+  const bearer = String(config.public.apiBearer || '').trim()
+
+  if (!apiBaseUrl) {
+    throw new ApiError(500, 'Konfigurationsfehler', 'NUXT_API_BASE_URL ist nicht konfiguriert.')
+  }
+
+  const url = new URL(`${apiBaseUrl}${path.startsWith('/') ? path : `/${path}`}`)
 
   if (options.params) {
     for (const [key, value] of Object.entries(options.params)) {
@@ -22,10 +31,11 @@ async function request(method, path, body, options = {}) {
 
   const headers = {
     ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
+    ...(bearer ? { Authorization: `Bearer ${bearer}` } : {}),
     ...(options.headers || {}),
   }
 
-  const response = await fetch(`${url.pathname}${url.search}`, {
+  const response = await fetch(url, {
     method,
     headers,
     body: body === undefined ? undefined : isFormData ? body : JSON.stringify(body),
