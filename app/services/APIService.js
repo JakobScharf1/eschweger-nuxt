@@ -24,7 +24,7 @@ async function request(method, path, body, options = {}) {
     ...(options.headers || {}),
   }
 
-  const response = await fetch(`${url.pathname}${url.search}`, {
+  const response = await fetch(url, {
     method,
     headers,
     body: body === undefined ? undefined : isFormData ? body : JSON.stringify(body),
