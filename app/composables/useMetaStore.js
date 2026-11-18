@@ -10,7 +10,7 @@ export function useMetaStore() {
     strasse: 'Unter den Weiden 5',
     ort: '37281 Wanfried',
     email: 'info@brombeerland.de',
-    tel: '0160 89 89 401',
+    tel: '05651 333 69 09',
   }))
 
   return metadata.value

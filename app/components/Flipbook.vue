@@ -2,7 +2,7 @@
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import type { PageFlip } from 'page-flip'
 import type { PDFDocumentProxy } from 'pdfjs-dist'
-import 'pdfjs-dist/web/pdf_viewer.css'
+import 'pdfjs-dist/web/pdf_viewer.css?fb-scope'
 
 type PdfJs = typeof import('pdfjs-dist')
 
