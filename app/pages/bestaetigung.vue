@@ -19,7 +19,6 @@
 </template>
 
 <script setup>
-import router from '@/router';
 import { ApiService } from '@/services/APIService';
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
