@@ -1,5 +1,3 @@
-import { useRuntimeConfig } from '#imports'
-
 class ApiError extends Error {
   constructor(status, statusText, message) {
     super(message ?? `${status} ${statusText}`)
@@ -9,14 +7,8 @@ class ApiError extends Error {
 }
 
 async function request(method, path, body, options = {}) {
-  const config = useRuntimeConfig()
-  const apiBaseUrl = String(config.public.apiBaseUrl || '').replace(/\/+$/, '')
-
-  if (!apiBaseUrl) {
-    throw new ApiError(500, 'Konfigurationsfehler', 'NUXT_API_BASE_URL ist nicht konfiguriert.')
-  }
-
-  const url = new URL(`${apiBaseUrl}${path.startsWith('/') ? path : `/${path}`}`)
+  const proxyPath = `/api/backend${path.startsWith('/') ? path : `/${path}`}`
+  const url = new URL(proxyPath, 'http://localhost')
 
   if (options.params) {
     for (const [key, value] of Object.entries(options.params)) {
@@ -33,7 +25,7 @@ async function request(method, path, body, options = {}) {
     ...(options.headers || {}),
   }
 
-  const response = await fetch(url, {
+  const response = await fetch(`${url.pathname}${url.search}`, {
     method,
     headers,
     body: body === undefined ? undefined : isFormData ? body : JSON.stringify(body),
