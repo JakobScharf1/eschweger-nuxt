@@ -7,7 +7,7 @@ class ApiError extends Error {
 }
 
 async function request(method, path, body, options = {}) {
-  const url = new URL(`/api/backend${path}`, 'http://nuxt.local')
+  const url = new URL(`https://controlling.brombeerland.org/api/v1${path}`)
 
   if (options.params) {
     for (const [key, value] of Object.entries(options.params)) {

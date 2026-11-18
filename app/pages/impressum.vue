@@ -26,7 +26,7 @@
                                 37281 Wanfried<br/>
                                 USt.-ID: DE459600389<br/>
                                 <!-- Tel: (05655) 32 000 00<br/>-->
-                                Mobil: (0160) 89 89 401<br/>
+                                Tel.: <a href="tel:056513336909">(05651) 333 69 09</a><br/>
                                 E-Email <a href="mailto:info@brombeerland.de">info@brombeerland.de</a>
                             </p>
                         </div>
@@ -47,7 +47,7 @@
                                 ISSN 3052-3079<br/>
                                 <!-- Tel: (05655) 32 000 00<br/> -->
                                 USt.-ID: DE459600389<br/>
-                                Mobil: (0160) 89 89 401<br/>
+                                Tel.: <a href="tel:056513336909">(05651) 333 69 09</a><br/>
                                 E-Email <a href="mailto:redaktion@die-eschweger.de">redaktion@die-eschweger.de</a><br/>
                                 Die Brombeerland gUG ist Mitglied im <a href="https://www.mvfp.de/" target="_blank">Medienverband der freien Presse e.V.</a>
                             </p>

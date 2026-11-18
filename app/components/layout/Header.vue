@@ -88,6 +88,9 @@
               <NuxtLink to="/demo" @click="menuClose">Ausgaben</NuxtLink>
             </li>
             <li class="nav-item">
+              <router-link to="/coworking" @click="menuClose">Coworking-Space</router-link>
+            </li>
+            <li class="nav-item">
               <NuxtLink to="/gewinnspiele" @click="menuClose">Gewinnspiele</NuxtLink>
             </li>
             <li class="nav-item">

@@ -442,12 +442,20 @@
                     <button type="submit" class="btn btn-primary rounded-pill btn-send" :disabled="submitting">
                         {{ submitting ? 'Sende...' : 'Absenden' }}
                     </button>
+                </div>
+                <div class="col-12">
                     <small class="ms-3" v-if="livePreisLoading">
                         <div class="spinner-border" role="status">
                             <span class="visually-hidden">Lädt...</span>
                         </div>
                     </small>
-                    <small class="ms-3" v-else>{{ livePreis === 0 ? 'Bitte wählen Sie ein Format aus' : `${livePreis} € exkl. MwSt.` }}</small>
+                    <template v-else>
+                        <small v-if="livePreis.length === 0">Bitte wählen Sie ein Format aus</small>
+                        <template v-else>
+                            <small v-for="preis in livePreis">{{ preis }}<br/></small>
+                            <small>Alle Preise exkl. MwSt.</small>
+                        </template>
+                    </template>
                 </div>
             </div>
 
@@ -544,6 +552,8 @@ const selectedFormat = computed(() => {
 
 // const uploadedFile = ref(null)
 
+const selectedAusgaben = computed(() => { return ausgaben.value.filter(ausgabe => ausgabe.selected).map(a => a.id) })
+
 const {
     form,
     errors,
@@ -589,10 +599,9 @@ const {
         }
     },
     onSubmit: async ({ form, selectedId }) => {
-        const selectedAusgaben = ausgaben.value.filter(ausgabe => ausgabe.selected).map(a => a.id)
         await sendBestellung(
             form.kundennummer,
-            selectedAusgaben,
+            selectedAusgaben.value,
             form.newsletter ? 'newsletter' : selectedId,
             form.kategorie,
             form.platzierung,
@@ -621,5 +630,5 @@ const {
     successText: 'Erfolgreich abgesendet! Bitte bestätigen Sie Ihre Anzeigenbestellung, damit wir Ihre Anfrage bearbeiten können.',
 })
 
-const { livePreis, livePreisLoading } = useLivePreis(form, selectedId, config.public.publicationId)
+const { livePreis, livePreisLoading } = useLivePreis(form, selectedId, selectedAusgaben, config.public.publicationId)
 </script>

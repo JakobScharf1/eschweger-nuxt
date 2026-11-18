@@ -325,12 +325,20 @@
                     <button type="submit" class="btn btn-primary rounded-pill btn-send" :disabled="submitting">
                         {{ submitting ? 'Sende...' : 'Absenden' }}
                     </button>
+                </div>
+                <div class="col-12">
                     <small class="ms-3" v-if="livePreisLoading">
                         <div class="spinner-border" role="status">
                             <span class="visually-hidden">Lädt...</span>
                         </div>
                     </small>
-                    <small class="ms-3" v-else>{{ livePreis === 0 ? 'Bitte wählen Sie ein Format aus' : `${livePreis} € inkl. MwSt.` }}</small>
+                    <template v-else>
+                        <small v-if="livePreis.length === 0">Bitte wählen Sie ein Format aus</small>
+                        <template v-else>
+                            <small v-for="preis in livePreis">{{ preis }}<br/></small>
+                            <small>Alle Preise inkl. MwSt.</small>
+                        </template>
+                    </template>
                 </div>
             </div>
         </form>
@@ -397,6 +405,8 @@ const selectedFormat = computed(() => {
 
 // const uploadedFile = ref(null) // TODO
 
+const selectedAusgaben = computed(() => { return ausgaben.value.filter(ausgabe => ausgabe.selected).map(ausgabe => ausgabe.id) })
+
 const {
     form,
     errors,
@@ -447,14 +457,10 @@ const {
     emailFields: {
         email: 'Bitte geben Sie eine gültige Email-Adresse an.',
     },
-    onSubmit: async ({ form, selectedId }) => {
-        const selectedAusgaben = ausgaben.value
-            .filter(ausgabe => ausgabe.selected)
-            .map(ausgabe => ausgabe.id)
-
+    onSubmit: async ({ form, selectedId, selectedAusgaben }) => {
         await sendBestellung(
             form.kundennummer,
-            selectedAusgaben,
+            selectedAusgaben.value,
             form.newsletter ? 'newsletter' : selectedId,
             'privatpreis',
             null,
@@ -488,11 +494,11 @@ watch([form, selectedId], () => {
         livePreisLoading.value = true
         clearTimeout(timer)
         timer = setTimeout(() => {
-            getLivePreis(selectedId.value, "privatpreis", false, form.newsletter, config.public.publicationId).then(res => {
+            getLivePreis(selectedId.value, "privatpreis", false, form.newsletter, selectedAusgaben.value, config.public.publicationId).then(res => {
                 livePreis.value = res.summe_netto
             })
         }, 2000)
-    } else livePreis.value = 0
+    } else livePreis.value = []
     livePreisLoading.value = false
 }, { deep: true })
 

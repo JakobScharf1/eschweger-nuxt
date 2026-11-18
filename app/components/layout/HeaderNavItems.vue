@@ -47,6 +47,7 @@
     <ul class="dropdown-menu">
       <li><NuxtLink class="dropdown-item" to="/mitmachen">Mitmachen</NuxtLink></li>
       <li><NuxtLink class="dropdown-item" to="/foerdern">Fördermitgliedschaft</NuxtLink></li>
+      <li><router-link class="dropdown-item" to="/coworking">Coworking-Space / STARTRAMPE</router-link></li>
     </ul>
   </li>
 

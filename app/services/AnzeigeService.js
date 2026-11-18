@@ -16,13 +16,14 @@ export async function getPreisinfos(publicationId) {
     return await ApiService.get(`/publikationen/${encodeURIComponent(requirePublicationId(publicationId))}/preisinfos`)
 }
 
-export async function getLivePreis(formatCode, preiskategorie, platzierungswunsch, newsletter, publicationId) {
+export async function getLivePreis(formatCode, preiskategorie, platzierungswunsch, newsletter, ausgaben, publicationId) {
     return await ApiService.post("/anzeigen-preis", {
         publikation_id: requirePublicationId(publicationId),
         format_code: formatCode,
         preiskategorie: preiskategorie,
         platzierungswunsch: platzierungswunsch,
-        newsletter_abonnenten: newsletter
+        newsletter_abonnenten: newsletter,
+        ausgabe_id: ausgaben
     })
 }
 

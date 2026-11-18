@@ -12,7 +12,7 @@ export const useMetaStore = defineStore('meta', () => {
     const strasse = ref("Marktstraße 29")
     const ort = ref("37269 Eschwege")
     const email = ref("info@brombeerland.de")
-    const tel = ref("0160 89 89 401")
+    const tel = ref("05651 333 69 09")
 
     async function fetchMeta() {
         return

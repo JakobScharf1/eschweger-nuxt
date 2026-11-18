@@ -65,17 +65,17 @@
 
 <script setup>
 const cards = [
-  // {
-  //   id: 1,
-  //   classes: "col-md-5 offset-md-1 align-self-end",
-  //   cardClass: "bg-pale-yellow",
-  //   iconSrc: "/assets/img/icons/lineal/calendar.svg",
-  //   iconClass: "icon-svg icon-svg-md text-yellow mb-3",
-  //   title: "Veranstaltungs-kalender",
-  //   description:
-  //     "Entdecken Sie alle Veranstaltungen in der Umgebung!",
-  //   path: "/veranstaltungen"
-  // },
+  {
+    id: 1,
+    classes: "col-md-5",
+    cardClass: "bg-pale-leaf",
+
+    iconSrc: "/assets/img/icons/lineal/shop.svg",
+    iconClass: "icon-svg icon-svg-md text-leaf mb-3",
+    title: "STARTRAMPE",
+    description: "Der Coworking-Space mitten in Eschwege.",
+    path: "/coworking"
+  },
   {
     id: 2,
     classes: "col-md-6 align-self-end",
