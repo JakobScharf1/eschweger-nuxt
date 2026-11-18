@@ -1,6 +1,6 @@
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
-  if (!config.apiBaseUrl) {
+  if (!config.public.apiBaseUrl) {
     throw createError({
       statusCode: 500,
       statusMessage: 'NUXT_API_BASE_URL ist nicht konfiguriert.',
@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'API-Pfad fehlt.' })
   }
 
-  const apiBase = String(config.apiBaseUrl).replace(/\/+$/, '')
+  const apiBase = String(config.public.apiBaseUrl).replace(/\/+$/, '')
   let target: URL
   try {
     target = new URL(

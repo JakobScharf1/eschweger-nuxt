@@ -26,9 +26,9 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    apiBaseUrl: '',
-    apiBearer: '',
+    apiBearer: process.env.NUXT_API_BEARER || '',
     public: {
+      apiBaseUrl: process.env.NUXT_API_BASE_URL || 'https://controlling.brombeerland.org/api/v1',
       publicationId: '',
     },
   },

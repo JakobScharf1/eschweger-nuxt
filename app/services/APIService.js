@@ -1,3 +1,5 @@
+import { useRuntimeConfig } from '#imports'
+
 class ApiError extends Error {
   constructor(status, statusText, message) {
     super(message ?? `${status} ${statusText}`)
@@ -7,7 +9,14 @@ class ApiError extends Error {
 }
 
 async function request(method, path, body, options = {}) {
-  const url = new URL(`https://controlling.brombeerland.org/api/v1${path}`)
+  const config = useRuntimeConfig()
+  const apiBaseUrl = String(config.public.apiBaseUrl || '').replace(/\/+$/, '')
+
+  if (!apiBaseUrl) {
+    throw new ApiError(500, 'Konfigurationsfehler', 'NUXT_API_BASE_URL ist nicht konfiguriert.')
+  }
+
+  const url = new URL(`${apiBaseUrl}${path.startsWith('/') ? path : `/${path}`}`)
 
   if (options.params) {
     for (const [key, value] of Object.entries(options.params)) {
