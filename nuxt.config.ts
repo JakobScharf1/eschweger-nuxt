@@ -97,6 +97,7 @@ export default defineNuxtConfig({
   sitemap: {
     zeroRuntime: true,
     exclude: ['/bestaetigung'],
+    xsl: false,
   },
   css: [
     'bootstrap/dist/css/bootstrap.min.css',
