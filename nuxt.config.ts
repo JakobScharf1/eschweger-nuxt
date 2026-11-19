@@ -90,6 +90,14 @@ const pdfViewerCssScopePlugin = {
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  modules: ['@nuxtjs/sitemap'],
+  site: {
+    url: 'https://die-eschweger.de',
+  },
+  sitemap: {
+    zeroRuntime: true,
+    exclude: ['/bestaetigung'],
+  },
   css: [
     'bootstrap/dist/css/bootstrap.min.css',
     'aos/dist/aos.css',
@@ -130,6 +138,7 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: [
         '/',
+        '/sitemap.xml',
         '/abo',
         '/anzeigen',
         '/datenschutz',

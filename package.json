@@ -34,6 +34,7 @@
     "vue-router": "^5.4.0"
   },
   "devDependencies": {
+    "@nuxtjs/sitemap": "^8.6.2",
     "@types/node": "^26.6.6",
     "postcss": "^8.5.33",
     "sass-embedded": "^1.107.1"

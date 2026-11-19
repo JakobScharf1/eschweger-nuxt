@@ -1,2 +1,3 @@
 User-Agent: *
 Disallow:
+Sitemap: https://die-eschweger.de/sitemap.xml

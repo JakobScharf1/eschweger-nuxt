@@ -23,6 +23,10 @@ import { ApiService } from '@/services/APIService';
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
+useSeoMeta({
+    robots: 'noindex',
+})
+
 const status = ref("")
 const processing = ref(false)
 
