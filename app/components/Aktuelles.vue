@@ -42,7 +42,7 @@ onMounted(async () => {
   try {
     const res = await getAktuelles(config.public.publicationId)
     if (res) {
-      aktuelles.value = res
+      aktuelles.value = res.aktuelles
       aktuelles.value.forEach(item => {
         item.am = new Date(item.am).toLocaleString('de-DE', {
           day: '2-digit', month: '2-digit', year: 'numeric',
