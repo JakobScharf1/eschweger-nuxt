@@ -10,7 +10,7 @@
           <div class="row mb-4" v-for="item of aktuelles" :key="item.id">
             <div class="col-9">
               <b>{{ item.headline }}</b><br/>
-              {{ item.bemerkung }}
+              <span v-html="item.bemerkung" />
             </div>
             <div class="col-3">
               <div class="row mb-1">
