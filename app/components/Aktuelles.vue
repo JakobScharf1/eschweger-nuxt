@@ -78,15 +78,15 @@ onMounted(async () => {
     }
   } catch (error) {
     console.error('Aktuelle Hinweise konnten nicht geladen werden.', error)
-  //}
-  } finally {
-    aktuelles.value = [{ id: 1, headline: "Test 1", bemerkung: "Lorem ipsum Lorem ipsum Lorem ipsum Lorremum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum d d d d d d d", am: "2026-11-29T16:00:00+00:00", ort: "Isuma Tagungszentrum<br/>Im Rosengarten 18<br/>37269 Eschwege-Oberhone"}, { id: 2, headline: "Test 1", bemerkung: "Lorem ipsum", am: "2026-12-01T16:00:00", ort: "Eschwege Marktplatz"}]
-      aktuelles.value.forEach(item => {
-        item.am = formatLocalDateTime(item.am)
-        item.bemerkung = cleanHTML(item.bemerkung)
-        item.ort = cleanHTML(item.ort)
-      })
   }
+  // } finally {
+  //   aktuelles.value = [{ id: 1, headline: "Test 1", bemerkung: "Lorem ipsum Lorem ipsum Lorem ipsum Lorremum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum d d d d d d d", am: "2026-11-29T16:00:00+00:00", ort: "Isuma Tagungszentrum<br/>Im Rosengarten 18<br/>37269 Eschwege-Oberhone"}, { id: 2, headline: "Test 1", bemerkung: "Lorem ipsum", am: "2026-12-01T16:00:00", ort: "Eschwege Marktplatz"}]
+  //     aktuelles.value.forEach(item => {
+  //       item.am = formatLocalDateTime(item.am)
+  //       item.bemerkung = cleanHTML(item.bemerkung)
+  //       item.ort = cleanHTML(item.ort)
+  //     })
+  // }
 })
 </script>
 
