@@ -55,34 +55,38 @@ function cleanHTML(html: string): string {
   })
 }
 
+function formatLocalDateTime(value: string): string {
+  const localValue = value.replace(/(?:Z|[+-]\d{2}:?\d{2})$/, '')
+  const [datePart, timePart] = localValue.split('T')
+  const [year, month, day] = datePart!.split('-')
+  const [hour, minute] = (timePart ?? '').split(':')
+
+  if (!year || !month || !day || !hour || !minute) return value
+  return `${day}.${month}.${year}, ${hour}:${minute} Uhr`
+}
+
 onMounted(async () => {
   try {
     const res = await getAktuelles(config.public.publicationId)
     if (res) {
       aktuelles.value = res.aktuelles
       aktuelles.value.forEach(item => {
-        item.am = new Date(item.am).toLocaleString(undefined, {
-          day: '2-digit', month: '2-digit', year: 'numeric',
-          hour: '2-digit', minute: '2-digit',
-        }) + " Uhr"
+        item.am = formatLocalDateTime(item.am)
         item.bemerkung = cleanHTML(item.bemerkung)
         item.ort = cleanHTML(item.ort)
       })
     }
   } catch (error) {
     console.error('Aktuelle Hinweise konnten nicht geladen werden.', error)
+  //}
+  } finally {
+    aktuelles.value = [{ id: 1, headline: "Test 1", bemerkung: "Lorem ipsum Lorem ipsum Lorem ipsum Lorremum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum d d d d d d d", am: "2026-11-29T16:00:00+00:00", ort: "Isuma Tagungszentrum<br/>Im Rosengarten 18<br/>37269 Eschwege-Oberhone"}, { id: 2, headline: "Test 1", bemerkung: "Lorem ipsum", am: "2026-12-01T16:00:00", ort: "Eschwege Marktplatz"}]
+      aktuelles.value.forEach(item => {
+        item.am = formatLocalDateTime(item.am)
+        item.bemerkung = cleanHTML(item.bemerkung)
+        item.ort = cleanHTML(item.ort)
+      })
   }
-  // } finally {
-  //   aktuelles.value = [{ id: 1, headline: "Test 1", bemerkung: "Lorem ipsum Lorem ipsum Lorem ipsum Lorremum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum d d d d d d d", am: "2026-12-01T16:00:00", ort: "Isuma Tagungszentrum<br/>Im Rosengarten 18<br/>37269 Eschwege-Oberhone"}, { id: 2, headline: "Test 1", bemerkung: "Lorem ipsum", am: "2026-12-01T16:00:00", ort: "Eschwege Marktplatz"}]
-  //     aktuelles.value.forEach(item => {
-  //       item.am = new Date(item.am).toLocaleString('de-DE', {
-  //         day: '2-digit', month: '2-digit', year: 'numeric',
-  //         hour: '2-digit', minute: '2-digit',
-  //       }) + " Uhr"
-  //       item.bemerkung = cleanHTML(item.bemerkung)
-  //       item.ort = cleanHTML(item.ort)
-  //     })
-  // }
 })
 </script>
 
