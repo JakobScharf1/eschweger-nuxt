@@ -1,66 +1,61 @@
 <template>
-  <section id="snippet-4" class="wrapper bg-light wrapper-border">
-    <div class="container pt-15 pt-md-17 pb-13 pb-md-15">
-      <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
-        <div class="col-lg-7 order-lg-2">
-          <div class="row gx-md-5 gy-5">
-            <div
-              v-for="(item, index) in cards"
-              :key="index"
-              :class="item.classes"
-            >
-                <NuxtLink v-if="item.path !== '/shop'" :to="item.path">
-                    <div class="card" :class="item.cardClass">
-                        <div class="card-body">
-                        <img
-                            :src="item.iconSrc"
-                            :class="item.iconClass"
-                            :alt="item.title"
-                        />
-                        <h4>{{ item.title }}</h4>
-                        <p class="mb-0">{{ item.description }}</p>
-                        </div>
-                        <!--/.card-body -->
-                    </div>
-                </NuxtLink>
-                <a v-else href="https://wannefredder.sumupstore.com/" target="_blank">
+  <div class="container pt-15 pt-md-17 pb-13 pb-md-15">
+    <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+      <div class="col-lg-7 order-lg-2">
+        <div class="row gx-md-5 gy-5">
+          <div
+            v-for="(item, index) in cards"
+            :key="index"
+            :class="item.classes"
+          >
+              <NuxtLink v-if="item.path !== '/shop'" :to="item.path">
                   <div class="card" :class="item.cardClass">
-                        <div class="card-body">
-                        <img
-                            :src="item.iconSrc"
-                            :class="item.iconClass"
-                            alt=""
-                        />
-                        <h4>{{ item.title }}</h4>
-                        <p class="mb-0">{{ item.description }}</p>
-                        </div>
-                        <!--/.card-body -->
-                    </div>
-                </a>
-              <!--/.card -->
-            </div>
-            <!--/column -->
+                      <div class="card-body">
+                      <img
+                          :src="item.iconSrc"
+                          :class="item.iconClass"
+                          :alt="item.title"
+                      />
+                      <h4>{{ item.title }}</h4>
+                      <p class="mb-0">{{ item.description }}</p>
+                      </div>
+                      <!--/.card-body -->
+                  </div>
+              </NuxtLink>
+              <a v-else href="https://wannefredder.sumupstore.com/" target="_blank">
+                <div class="card" :class="item.cardClass">
+                      <div class="card-body">
+                      <img
+                          :src="item.iconSrc"
+                          :class="item.iconClass"
+                          alt=""
+                      />
+                      <h4>{{ item.title }}</h4>
+                      <p class="mb-0">{{ item.description }}</p>
+                      </div>
+                      <!--/.card-body -->
+                  </div>
+              </a>
+            <!--/.card -->
           </div>
-          <!--/.row -->
+          <!--/column -->
         </div>
-        <!--/column -->
-        <div class="col-lg-5">
-          <h2 class="fs-15 text-uppercase text-muted mb-3">Angebote</h2>
-          <h3 class="display-4 mb-5">
-            Entdecken Sie Ihre Region!
-          </h3>
-          <p>
-            Neben unserer Funktion als Bürgerzeitung bieten wir zudem verschiedene Angebote, wie einen Veranstaltungskalender, Gewinnspiele und Kleinanzeigen an. Natürlich alles kostenlos!
-          </p>
-        </div>
-        <!--/column -->
+        <!--/.row -->
       </div>
-      <!--/.row -->
+      <!--/column -->
+      <div class="col-lg-5">
+        <h2 class="fs-15 text-uppercase text-muted mb-3">Angebote</h2>
+        <h3 class="display-4 mb-5">
+          Entdecken Sie Ihre Region!
+        </h3>
+        <p>
+          Neben unserer Funktion als Bürgerzeitung bieten wir zudem verschiedene Angebote, wie einen Veranstaltungskalender, Gewinnspiele und Kleinanzeigen an. Natürlich alles kostenlos!
+        </p>
+      </div>
+      <!--/column -->
     </div>
-    <!-- /.container -->
-
-    <!-- /.container -->
-  </section>
+    <!--/.row -->
+  </div>
 </template>
 
 <script setup>

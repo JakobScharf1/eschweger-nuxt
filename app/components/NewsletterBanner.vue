@@ -1,5 +1,5 @@
 <template>
-<div class="container pt-15 pt-md-17 pb-13 pb-md-15">
+<div class="container py-15 py-md-17">
     <div class="row gx-md-8 gx-xl-12 gy-10">
         <div class="col-12">
             <div class="card bg-pale-blue">

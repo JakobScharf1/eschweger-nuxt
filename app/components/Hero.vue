@@ -16,36 +16,10 @@
         />
       </div>
     </div>
-    <div v-if="aktuelles !== '' || errorMessage" class="container hero-alert">
-      <div v-if="aktuelles" class="alert alert-primary" role="alert">
-        <b>Aktuelles</b><br />
-        {{ aktuelles }}
-      </div>
-    </div>
   </section>
 </template>
 
 <script setup>
-import { getAktuelles } from '@/services/AktuellesService';
-import { useMetaStore } from '@/composables/useMetaStore.js';
-import { onMounted, ref } from 'vue';
-
-const meta = useMetaStore()
-const aktuelles = ref("")
-const errorMessage = ref('')
-const config = useRuntimeConfig()
-
-onMounted(async () => {
-  try {
-    const res = await getAktuelles(config.public.publicationId)
-    if (res.text) {
-      aktuelles.value = res.text
-    }
-  } catch (error) {
-    errorMessage.value = error instanceof Error ? error.message : 'Aktuelles konnte nicht geladen werden.'
-    console.error('Aktuelle Hinweise konnten nicht geladen werden.', error)
-  }
-})
 </script>
 
 <style lang="scss" scoped>
@@ -53,7 +27,7 @@ onMounted(async () => {
   position: relative;
   overflow: hidden;
   padding-top: 0;
-  padding-bottom: clamp(8rem, 18vh, 20rem);
+  //padding-bottom: clamp(8rem, 18vh, 20rem);
 }
 
 .hero-banner {
