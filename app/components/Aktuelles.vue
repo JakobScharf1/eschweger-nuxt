@@ -7,22 +7,25 @@
           <div class="text-center">
             <h3 class="display-5 mb-5">Aktuelles</h3>
           </div>
-          <div class="row mb-4" v-for="item of aktuelles" :key="item.id">
-            <div class="col-9">
-              <b>{{ item.headline }}</b><br/>
-              <span v-html="item.bemerkung" />
-            </div>
-            <div class="col-3">
-              <div class="row mb-1">
-                <div class="col-auto pe-0">📍</div>
-                <div class="col-auto"><span v-html="item.ort" /></div>
+          <template v-for="(item, index) of aktuelles" :key="item.id">
+            <div class="row mb-4">
+              <div class="col-9">
+                <b>{{ item.headline }}</b><br/>
+                <span v-html="item.bemerkung" />
               </div>
-              <div class="row">
-                <div class="col-auto pe-0">🗓️</div>
-                <div class="col-auto">{{ item.am }}</div>
+              <div class="col-3">
+                <div class="row mb-1">
+                  <div class="col-auto pe-0">📍</div>
+                  <div class="col-auto"><span v-html="item.ort" /></div>
+                </div>
+                <div class="row">
+                  <div class="col-auto pe-0">🗓️</div>
+                  <div class="col-auto">{{ item.am }}</div>
+                </div>
               </div>
             </div>
-          </div>
+            <hr class="m-0 p-0 mb-4" v-if="index !== aktuelles.length - 1 && aktuelles.length !== 1" />
+          </template>
         </div>
       </div>
     </div>
@@ -58,7 +61,7 @@ onMounted(async () => {
     if (res) {
       aktuelles.value = res.aktuelles
       aktuelles.value.forEach(item => {
-        item.am = new Date(item.am).toLocaleString('de-DE', {
+        item.am = new Date(item.am).toLocaleString(undefined, {
           day: '2-digit', month: '2-digit', year: 'numeric',
           hour: '2-digit', minute: '2-digit',
         }) + " Uhr"
