@@ -29,6 +29,9 @@
             <li><i class="uil uil-check"></i>Frische Kaffeespezialitäten</li>
             <li><i class="uil uil-check"></i>Die Möglichkeit, den Arbeitsplatz rund um die Uhr zu nutzen</li>
           </ul>
+          <a class="mt-7 btn btn-success btn-lg" href="https://startrampe.die-eschweger.de/" target="_blank">
+            Jetzt buchen
+          </a>
         </div>
         <div class="col-lg-5">
           <div
