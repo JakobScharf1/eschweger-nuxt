@@ -107,7 +107,7 @@
                     <thead>
                         <tr>
                             <th>Schaltungen</th>
-                            <th>Rückerstattungen</th>
+                            <th>Rabatt</th>
                         </tr>
                     </thead>
                     <tbody>
